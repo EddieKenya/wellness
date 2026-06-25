@@ -10,7 +10,7 @@ type PageProps = {
 
 async function getArticle(slug: string) {
   // Ensure your API URL matches your Django endpoint structure
-  const res = await fetch(`http://127.0.0.1:8000/api/articles/${slug}/`, {
+  const res = await fetch(`https://wellnessbackend-hwd4.onrender.com/api/articles/${slug}/`, {
     next: { revalidate: 60 }
   });
   
