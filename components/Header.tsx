@@ -1,4 +1,3 @@
-// components/Header.tsx
 import Link from 'next/link';
 
 export default function Header() {
@@ -8,9 +7,14 @@ export default function Header() {
         <Link href="/" className="text-xl font-bold text-teal-700">
           WellnessPlatform
         </Link>
-        <div className="space-x-6 text-sm font-medium text-slate-600">
-          <Link href="/articles" className="hover:text-teal-700">Browse Articles</Link>
-          <Link href="/about" className="hover:text-teal-700">About</Link>
+        
+        <div className="flex items-center space-x-6 text-sm font-medium text-slate-600">
+          <Link href="/articles" className="hover:text-teal-700 transition-colors">
+            Browse Articles
+          </Link>
+          <Link href="/about" className="hover:text-teal-700 transition-colors">
+            About
+          </Link>
         </div>
       </nav>
     </header>
