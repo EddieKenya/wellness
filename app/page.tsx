@@ -32,19 +32,19 @@ export default async function HomePage() {
   ];
 
   return (
-    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow bg-white dark:bg-black text-zinc-900 dark:text-zinc-50">
+    <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex-grow bg-white dark:bg-black text-zinc-900 dark:text-zinc-50 overflow-hidden">
       
-      {/* Featured Hero Section with your Image */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16 py-8 border-b border-zinc-100 dark:border-zinc-800">
-        <div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4 text-zinc-950 dark:text-zinc-50">
+      {/* Featured Hero Section — Fully Mobile Responsive & Layout Swapping */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16 py-6 sm:py-8 border-b border-zinc-100 dark:border-zinc-800 overflow-hidden">
+        <div className="order-2 lg:order-1 flex flex-col justify-center">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 text-zinc-950 dark:text-zinc-50 leading-tight">
             Wellness, Fitness & Health Education
           </h1>
-          <p className="text-lg leading-8 text-zinc-600 dark:text-zinc-400">
+          <p className="text-base sm:text-lg leading-relaxed lg:leading-8 text-zinc-600 dark:text-zinc-400">
             Empowering your personal health journey with evidence-based wellness strategies, professional calisthenics guidance, and comprehensive physical training advice.
           </p>
         </div>
-        <div className="aspect-video w-full overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-900 shadow-sm">
+        <div className="order-1 lg:order-2 aspect-video w-full overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-900 shadow-sm relative">
           <img
             src="/fitness-couple.jpg"
             alt="Healthy lifestyle and fitness training"
@@ -55,24 +55,24 @@ export default async function HomePage() {
 
       {/* Dynamic Content Core */}
       {articles.length === 0 ? (
-        <div className="text-center py-16 bg-zinc-50 dark:bg-zinc-900 rounded-2xl border border-dashed border-zinc-200 dark:border-zinc-800">
-          <p className="text-zinc-500 dark:text-zinc-400 font-medium text-lg">
+        <div className="text-center py-16 bg-zinc-50 dark:bg-zinc-900 rounded-2xl border border-dashed border-zinc-200 dark:border-zinc-800 mx-auto max-w-full">
+          <p className="text-zinc-500 dark:text-zinc-400 font-medium text-base sm:text-lg px-4">
             Our health and fitness archives are synchronizing. New articles arriving shortly!
           </p>
         </div>
       ) : (
-        <div>
-          <h2 className="text-2xl font-bold mb-8 tracking-tight text-zinc-900 dark:text-zinc-100">
+        <div className="w-full overflow-hidden">
+          <h2 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 tracking-tight text-zinc-900 dark:text-zinc-100">
             Latest Educational Briefs
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {articles.map((article, index) => {
               const displayImage = article.image || fallbackImages[index % fallbackImages.length];
 
               return (
                 <article 
                   key={article.id} 
-                  className="group bg-white dark:bg-zinc-950 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col overflow-hidden"
+                  className="group bg-white dark:bg-zinc-950 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col overflow-hidden max-w-full"
                 >
                   <div className="aspect-video w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900 relative">
                     <img
@@ -82,8 +82,8 @@ export default async function HomePage() {
                       loading="lazy"
                     />
                   </div>
-                  <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="text-xl font-bold text-zinc-950 dark:text-zinc-50 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-200 mb-3 line-clamp-2">
+                  <div className="p-5 sm:p-6 flex flex-col flex-grow">
+                    <h3 className="text-lg sm:text-xl font-bold text-zinc-950 dark:text-zinc-50 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-200 mb-3 line-clamp-2">
                       {article.title}
                     </h3>
                     <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-6 line-clamp-3 flex-grow leading-relaxed">
@@ -91,7 +91,7 @@ export default async function HomePage() {
                     </p>
                     <Link
                       href={`/news/${article.slug}`}
-                      className="inline-flex items-center font-semibold text-sm text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors duration-150"
+                      className="inline-flex items-center font-semibold text-sm text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors duration-150 mt-auto"
                     >
                       Read Analysis
                       <span className="ml-1.5 transform group-hover:translate-x-0.5 transition-transform duration-150">→</span>
