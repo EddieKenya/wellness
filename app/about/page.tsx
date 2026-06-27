@@ -4,8 +4,8 @@ import Link from 'next/link';
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white text-gray-800 font-sans antialiased">
-      {/* Hero Section */}
-      <header className="relative bg-gradient-to-br from-slate-800 to-emerald-700 text-white py-24 px-6 text-center shadow-md">
+      {/* Hero Section — Swapped from header to section tag to prevent CSS layout conflicts */}
+      <section className="relative bg-gradient-to-br from-slate-800 to-emerald-700 text-white py-24 px-6 text-center shadow-md">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
             Empowering Your Wellness Journey
@@ -14,7 +14,7 @@ export default function AboutPage() {
             Your trusted digital sanctuary for evidence-based health insights, mindful living practices, and transformative wellness articles.
           </p>
         </div>
-      </header>
+      </section>
 
       {/* Corporate Identity & Mission */}
       <section className="max-w-5xl mx-auto py-16 px-6 text-center">
@@ -96,7 +96,7 @@ export default function AboutPage() {
           </p>
           <Link 
             href="/news" 
-            className="inline-block bg-emerald-500 text-white font-semibold px-8 py-3..5 rounded-full transition-all duration-200 shadow-lg shadow-emerald-500/20 hover:bg-emerald-600 hover:scale-[1.02]"
+            className="inline-block bg-emerald-500 text-white font-semibold px-8 py-3.5 rounded-full transition-all duration-200 shadow-lg shadow-emerald-500/20 hover:bg-emerald-600 hover:scale-[1.02]"
           >
             Explore Latest Articles
           </Link>

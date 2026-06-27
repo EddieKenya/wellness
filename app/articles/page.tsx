@@ -46,58 +46,58 @@ export default async function BrowseArticlesPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans antialiased">
-      {/* Page Header Area */}
-      <section className="bg-white border-b border-slate-200 py-16 px-6">
+      {/* Page Header Area — Uses section instead of header tag to bypass menu layout overrides */}
+      <section className="bg-white border-b border-slate-200 py-12 md:py-16 px-4 md:px-6">
         <div className="max-w-5xl mx-auto text-center">
-          <span className="text-xs font-semibold uppercase tracking-wider text-teal-600 bg-teal-50 px-3 py-1 rounded-full">
+          <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-3 py-1 rounded-full inline-block">
             Our Library
-          </span >
-          <h1 className="text-3xl md:text-4xl font-extrabold text-slate-950 mt-3 mb-4 tracking-tight">
+          </span>
+          <h1 className="text-2xl md:text-4xl font-extrabold text-slate-950 mt-3 mb-3 tracking-tight">
             Browse Wellness Articles
           </h1>
-          <p className="text-slate-500 max-w-xl mx-auto text-base leading-relaxed">
+          <p className="text-slate-500 max-w-xl mx-auto text-sm md:text-base leading-relaxed px-2">
             Explore our curated selection of expert-vetted wellness, health, and holistic lifestyle resources.
           </p>
         </div>
       </section>
 
-      {/* Articles Container */}
-      <main className="max-w-5xl mx-auto py-12 px-6">
+      {/* Articles Container — Optimized grid and card padding layouts for phone widths */}
+      <main className="max-w-5xl mx-auto py-8 md:py-12 px-4 md:px-6">
         {articles.length === 0 ? (
           <div className="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8">
-            <p className="text-slate-500">No articles have been uploaded yet. Check back soon!</p>
+            <p className="text-slate-500 text-sm">No articles have been uploaded yet. Check back soon!</p>
           </div>
         ) : (
-          /* Grid Layout: Responsive columns that naturally go next to or below each other */
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          /* Grid Layout: Renders as a beautiful, breathing single column on mobile viewports */
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {articles.map((article) => (
               <article 
                 key={article.id}
-                className="group flex flex-col bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
+                className="group flex flex-col bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all duration-200"
               >
                 {/* Decorative Category Ribbon */}
-                <div className="p-6 pb-0">
-                  <span className="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-2.5 py-1 rounded">
+                <div className="p-5 pb-0">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-2.5 py-1 rounded inline-block">
                     {article.category || 'Wellness'}
                   </span>
                 </div>
 
                 {/* Text Content */}
-                <div className="p-6 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h2 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-teal-700 transition-colors line-clamp-2">
+                <div className="p-5 flex-1 flex flex-col justify-between">
+                  <div className="mb-4">
+                    <h2 className="text-lg md:text-xl font-bold text-slate-900 mb-2 group-hover:text-teal-700 transition-colors line-clamp-2 leading-snug">
                       <Link href={`/news/${article.slug}`}>
                         {article.title}
                       </Link>
                     </h2>
-                    <p className="text-sm text-slate-500 leading-relaxed line-clamp-3 mb-4">
+                    <p className="text-xs md:text-sm text-slate-500 leading-relaxed line-clamp-3">
                       {article.excerpt}
                     </p>
                   </div>
 
                   {/* Footer metadata Link */}
-                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between mt-auto">
-                    <span className="text-xs text-slate-400 font-medium">
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between mt-auto">
+                    <span className="text-[11px] text-slate-400 font-medium">
                       {new Date(article.created_at).toLocaleDateString('en-US', {
                         month: 'short',
                         day: 'numeric',
@@ -106,16 +106,16 @@ export default async function BrowseArticlesPage() {
                     </span>
                     <Link 
                       href={`/news/${article.slug}`}
-                      className="text-sm font-semibold text-teal-700 group-hover:text-teal-800 flex items-center gap-1 transition-all"
+                      className="text-xs md:text-sm font-bold text-teal-700 group-hover:text-teal-800 flex items-center gap-1 transition-all"
                     >
                       Read Article 
                       <svg 
-                        className="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" 
+                        className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform" 
                         fill="none" 
                         stroke="currentColor" 
                         viewBox="0 0 24 24"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                       </svg>
                     </Link>
                   </div>
