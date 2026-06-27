@@ -42,11 +42,10 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
-        <AgeGate>
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </AgeGate>
+        {/* Temporarily bypassed AgeGate wrapper to fix mobile blank page rendering */}
+        <Header />
+        <main className="flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );
