@@ -18,6 +18,26 @@
     --foreground: #ededed;
   }
 }
+
+/* Force strict mobile layout constraints across all devices */
+html,
+body {
+  max-width: 100vw;
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%; /* Prevents iOS from auto-scaling text sizes */
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -25,3 +45,11 @@ body {
   line-height: 1.6;
 }
 
+/* Hide the automatic Netlify injection widget across views cleanly */
+#netlify-modal, 
+[id^="netlify-"], 
+iframe[src*="netlify"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
